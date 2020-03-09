@@ -22,6 +22,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+
 import com.apress.ravi.UserRegistrationSystemApplication;
 import com.apress.ravi.Rest.UserRegistrationRestController;
 import com.apress.ravi.dto.UserDTO;
@@ -57,12 +59,18 @@ public class UserRegistrationControllerTest {
 	@Test
 	public void shouldReturnSuccessMessage() throws Exception {
 		when(this.userJpaRepositoryMock.findById(1L)).thenReturn(optuser);
+//		System.out.println(this.mockMvc.perform(get("/api/user/1")));
+		//MvcResult mvcResult = mockMvc.perform(get("/api/user/1")).andExpect(status().isOk()).andReturn();
+//		MvcResult mvcResult = mockMvc.perform(get("/api/user/1")).andReturn();
+	    //Assert.assertEquals("foo and bar", mvcResult.getResponse().getContentAsString());
+//		System.out.println("AAAAAA"+mvcResult.getResponse().getContentAsString());
 		this.mockMvc.perform(get("/api/user/1"))
 		        .andExpect(status().isOk())
 				.andExpect(content().contentType(contentType))
-				//.andExpect(jsonPath("$.name", is("Ravi Kant Soni")))
-				//.andExpect(jsonPath("$.address", is("JP Nagar; Bangalore; India")))
-				//.andExpect(jsonPath("$.email", is("ravikantsoni.author@gmail.com")))
+//				.andExpect()
+				.andExpect(jsonPath("$.name", is("Ravi Kant Soni")))
+				.andExpect(jsonPath("$.address", is("JP Nagar; Bangalore; India")))
+				.andExpect(jsonPath("$.email", is("ravikantsoni.author@gmail.com")))
 				.andDo(print());
 	}
 }
