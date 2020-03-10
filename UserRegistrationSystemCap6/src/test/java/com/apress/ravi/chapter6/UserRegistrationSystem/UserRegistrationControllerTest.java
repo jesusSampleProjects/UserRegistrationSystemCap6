@@ -60,7 +60,7 @@ public class UserRegistrationControllerTest {
 	public void shouldReturnSuccessMessage() throws Exception {
 		when(this.userJpaRepositoryMock.findById(1L)).thenReturn(optuser);
 //		System.out.println(this.mockMvc.perform(get("/api/user/1")));
-		//MvcResult mvcResult = mockMvc.perform(get("/api/user/1")).andExpect(status().isOk()).andReturn();
+//		MvcResult mvcResult = mockMvc.perform(get("/api/user/1")).andExpect(status().isOk()).andReturn();
 //		MvcResult mvcResult = mockMvc.perform(get("/api/user/1")).andReturn();
 	    //Assert.assertEquals("foo and bar", mvcResult.getResponse().getContentAsString());
 //		System.out.println("AAAAAA"+mvcResult.getResponse().getContentAsString());
