@@ -67,7 +67,6 @@ public class UserRegistrationControllerTest {
 		this.mockMvc.perform(get("/api/user/1"))
 		        .andExpect(status().isOk())
 				.andExpect(content().contentType(contentType))
-//				.andExpect()
 				.andExpect(jsonPath("$.name", is("Ravi Kant Soni")))
 				.andExpect(jsonPath("$.address", is("JP Nagar; Bangalore; India")))
 				.andExpect(jsonPath("$.email", is("ravikantsoni.author@gmail.com")))
